@@ -19,11 +19,4 @@ export const registerUser = async (req, res) => {
       password: hashedPassword
     });
 
-    res.status(201).json({
-      message: "User created",
-      userId: user._id
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+    
