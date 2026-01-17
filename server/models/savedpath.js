@@ -24,3 +24,21 @@ export const generateCareerPaths = async (simulationInput) => {
         role: String,
         salary: String
       }
+
+      (profile) {
+            profile.degree = degree;
+            profile.year = year;
+            profile.country = country;
+            profile.skills = skills;
+            profile.interests = interests;
+            await profile.save();
+          } else {
+            profile = await Profile.create({
+              userId,
+              degree,
+              year,
+              country,
+              skills,
+              interests
+            });
+          }
