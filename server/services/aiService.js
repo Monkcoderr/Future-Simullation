@@ -1,13 +1,4 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-// import dotenv from "dotenv";
-
-// // Load environment variables strictly before using them
-// dotenv.config();
- console.log(
-  "Gemini key at load:",
-  process.env.GEMINI_API_KEY ? "FOUND" : "MISSING"
-);
-
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
@@ -40,9 +31,9 @@ No extra text.
 
   const text = result.response.text();
 
-  // ⚠️ Gemini sometimes adds whitespace or newlines
-  // So we trim before parsing
+ 
   const careerPaths = JSON.parse(text.trim());
 
   return careerPaths;
 };
+
