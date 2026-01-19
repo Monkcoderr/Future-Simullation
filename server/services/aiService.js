@@ -22,18 +22,18 @@ const extractJsonArray = (text) => {
 /**
  * Validates structure of career paths
  */
-// const validateCareerPaths = (paths) => {
-//   if (!Array.isArray(paths) || paths.length !== 3) {
-//     return false;
-//   }
+const validateCareerPaths = (paths) => {
+  if (!Array.isArray(paths) || paths.length !== 3) {
+    return false;
+  }
 
-//   return paths.every(path =>
-//     typeof path.title === "string" &&
-//     typeof path.riskLevel === "string" &&
-//     Array.isArray(path.requiredSkills) &&
-//     Array.isArray(path.timeline)
-//   );
-// };
+  return paths.every(path =>
+    typeof path.title === "string" &&
+    typeof path.riskLevel === "string" &&
+    Array.isArray(path.requiredSkills) &&
+    Array.isArray(path.timeline)
+  );
+};
 
 /**
  * Generates career paths using Gemini (hardened)
