@@ -11,3 +11,24 @@ export const compareSimulation = async (req, res) => {
     if (!profile) {
       return res.status(400).json({ message: "Profile not found" });
     }
+
+    const careerPaths = await CareerPath.find({ simulationId });
+
+    if (!careerPaths.length) {
+      return res.status(404).json({ message: "No career paths found" });
+    }
+
+    const comparison = compareCareerPaths(
+      careerPaths,
+      profile.skills
+    );
+
+    res.json({
+      simulationId,
+      comparison
+    });
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
