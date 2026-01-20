@@ -4,6 +4,7 @@ import authRoutes from "./routes/authRoutes.js";
 import { protect } from "./middlewares/auth.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import simulationRoutes from "./routes/simulationRoutes.js";
+import comparisonRoutes from "./routes/comparisonRoutes.js";
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.get("/api/protected", protect, (req, res) => {
   res.json({ message: "You are in", userId: req.userId });
 });
 
-
+app.use("/api/compare", comparisonRoutes)
 
 app.use("/api/profile", profileRoutes);
 
