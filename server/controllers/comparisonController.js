@@ -7,6 +7,8 @@ export const compareSimulation = async (req, res) => {
     const { simulationId } = req.params;
     const userId = req.userId;
 
+    const weights = req.body?.weights; // 👈 NEW
+
     const profile = await Profile.findOne({ userId });
     if (!profile) {
       return res.status(400).json({ message: "Profile not found" });
@@ -18,10 +20,11 @@ export const compareSimulation = async (req, res) => {
     }
 
     const comparison = compareCareerPaths(careerPaths, profile.skills);
-    const ranked = rankCareerPaths(comparison);
+    const ranked = rankCareerPaths(comparison, weights);
 
     res.json({
       simulationId,
+      weightsUsed: weights || "default",
       rankedPaths: ranked
     });
 

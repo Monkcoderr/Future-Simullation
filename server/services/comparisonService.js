@@ -37,7 +37,9 @@ export const compareCareerPaths = (careerPaths, userSkills) => {
     };
   });
 };
-export const rankCareerPaths = (comparisonResults) => {
+export const rankCareerPaths = (comparisonResults, customWeights = {}) => {
+  const weights = { ...DEFAULT_WEIGHTS, ...customWeights };
+
   const maxEarning = Math.max(...comparisonResults.map(p => p.earningPotential));
   const maxGrowth = Math.max(...comparisonResults.map(p => Number(p.growthSpeed)));
   const maxSkillGap = Math.max(...comparisonResults.map(p => p.skillGap));
@@ -46,16 +48,16 @@ export const rankCareerPaths = (comparisonResults) => {
     .map(path => {
       const earningScore = path.earningPotential / maxEarning;
       const growthScore = Number(path.growthSpeed) / maxGrowth;
-      const riskScore = 1 - (path.riskScore - 1) / 2; // Low=1 → 1.0, High=3 → 0.0
+      const riskScore = 1 - (path.riskScore - 1) / 2;
       const skillScore = maxSkillGap === 0
         ? 1
         : 1 - path.skillGap / maxSkillGap;
 
       const finalScore =
-        earningScore * 0.4 +
-        growthScore * 0.25 +
-        riskScore * 0.2 +
-        skillScore * 0.15;
+        earningScore * weights.earning +
+        growthScore * weights.growth +
+        riskScore * weights.risk +
+        skillScore * weights.skill;
 
       return {
         ...path,
