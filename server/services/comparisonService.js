@@ -37,3 +37,30 @@ export const compareCareerPaths = (careerPaths, userSkills) => {
     };
   });
 };
+export const rankCareerPaths = (comparisonResults) => {
+  const maxEarning = Math.max(...comparisonResults.map(p => p.earningPotential));
+  const maxGrowth = Math.max(...comparisonResults.map(p => Number(p.growthSpeed)));
+  const maxSkillGap = Math.max(...comparisonResults.map(p => p.skillGap));
+
+  return comparisonResults
+    .map(path => {
+      const earningScore = path.earningPotential / maxEarning;
+      const growthScore = Number(path.growthSpeed) / maxGrowth;
+      const riskScore = 1 - (path.riskScore - 1) / 2; // Low=1 → 1.0, High=3 → 0.0
+      const skillScore = maxSkillGap === 0
+        ? 1
+        : 1 - path.skillGap / maxSkillGap;
+
+      const finalScore =
+        earningScore * 0.4 +
+        growthScore * 0.25 +
+        riskScore * 0.2 +
+        skillScore * 0.15;
+
+      return {
+        ...path,
+        finalScore: Number(finalScore.toFixed(3))
+      };
+    })
+    .sort((a, b) => b.finalScore - a.finalScore);
+};
