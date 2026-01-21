@@ -26,3 +26,6 @@
     }
   ]
 }
+const maxEarning = Math.max(...comparisonResults.map(p => p.earningPotential));
+  const maxGrowth = Math.max(...comparisonResults.map(p => Number(p.growthSpeed)));
+  const maxSkillGap = Math.max(...comparisonResults.map(p => p.skillGap));
