@@ -3,6 +3,13 @@ const riskMap = {
   Medium: 2,
   High: 3
 };
+const DEFAULT_WEIGHTS = {
+  earning: 0.4,
+  growth: 0.25,
+  risk: 0.2,
+  skill: 0.15
+};
+
 
 const parseSalary = (salary) => {
   // "28 LPA" → 28
