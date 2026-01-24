@@ -6,3 +6,7 @@ function futureguess(){
     SVGAElement.bind()
     XMLHttpRequestUpload()
 }
+
+const AI_reloading = ()=>{
+    Response(extends)
+}
