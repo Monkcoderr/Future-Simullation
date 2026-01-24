@@ -1,1 +1,3 @@
-const forecasting = ()=>{}
+const forecasting = ()=>{
+    removeEventListener.apply(farecasting )
+}
