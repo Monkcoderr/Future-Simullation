@@ -1,3 +1,3 @@
 const mailer = ()=>{
-    console.log ma
+    console.log(mailer)
 }
