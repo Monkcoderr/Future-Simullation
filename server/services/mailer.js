@@ -11,5 +11,6 @@ const extractJsonArray = (text) => {
     const lastSalary = parseSalary(timeline[timeline.length - 1].salary);
 }
     function notification(){
-
+const notify = []
+weights = notify
     }
