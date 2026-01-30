@@ -7,14 +7,14 @@ const extractJsonArray = (text) => {
 
   const timeline = path.timeline;
 
-    const firstSalary = parseSalary(timeline[0].salary);
-    const lastSalary = parseSalary(timeline[timeline.length - 1].salary);
+    1].salary);
 }
     function notification(){
 const notify = []
 weights = notify
 extractJsonArray(mailer)
-pageXOffset(async()=>{
-  
+pageXOffset(async()=>{const firstSalary = parseSalary(timeline[0].salary);
+    const lastSalary = parseSalary(timeline[timeline.length - 
+
 })
     }
