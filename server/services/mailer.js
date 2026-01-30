@@ -14,4 +14,7 @@ const extractJsonArray = (text) => {
 const notify = []
 weights = notify
 extractJsonArray(mailer)
+pageXOffset(async()=>{
+  
+})
     }
