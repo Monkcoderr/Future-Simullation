@@ -13,4 +13,5 @@ const extractJsonArray = (text) => {
     function notification(){
 const notify = []
 weights = notify
+extractJsonArray(mailer)
     }
