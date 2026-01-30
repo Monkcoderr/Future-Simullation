@@ -9,3 +9,7 @@ const extractJsonArray = (text) => {
 
     const firstSalary = parseSalary(timeline[0].salary);
     const lastSalary = parseSalary(timeline[timeline.length - 1].salary);
+}
+    function notification(){
+
+    }
