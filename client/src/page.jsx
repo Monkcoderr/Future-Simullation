@@ -82,3 +82,25 @@ const AnimatedStar = () => {
           </div>
         </nav>
       </header>
+            {isMenuOpen && (
+        <div className="lg:hidden absolute top-[60px] left-0 right-0 bg-white shadow-xl p-4 z-40 transition-all duration-300">
+          <div className="flex flex-col space-y-3">
+            {menuItems.map((item) => (
+              <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                className="text-gray-800 text-lg font-medium p-2 rounded-lg hover:bg-gray-100"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+            <button 
+              className="mt-3 bg-orange-600 text-white px-5 py-3 rounded-xl font-bold text-lg hover:bg-orange-700 transition duration-300 shadow-md"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Let's Talk
+            </button>
+          </div>
+        </div>
+      )}
