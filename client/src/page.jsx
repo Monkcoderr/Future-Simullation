@@ -66,3 +66,19 @@ const AnimatedStar = () => {
               </a>
             ))}
           </div>
+           <div className="flex items-center space-x-4">
+            <button 
+              className="hidden lg:inline-flex bg-orange-600 text-white px-5 py-2 rounded-xl font-semibold shadow-lg hover:bg-orange-700 transition duration-300 transform hover:-translate-y-0.5"
+            >
+              Let's Talk
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </button>
+            <button 
+              className="lg:hidden p-2 text-gray-700 hover:text-orange-500 transition"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </nav>
+      </header>
