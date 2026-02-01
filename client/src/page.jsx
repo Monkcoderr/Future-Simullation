@@ -26,4 +26,43 @@ const AnimatedStar = () => {
       />
     </Icosahedron>
   );
-};
+};const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuItems = ['Features', 'Solutions', 'Pricing', 'About'];
+
+  return (
+    <div className="min-h-screen bg-gray-50 font-inter antialiased">
+      
+      {/* Tailwind Animation Customization (for pulse-slow) */}
+      <style>{`
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.4; }
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+      `}</style>
+
+      {/* Navigation Bar */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center transition duration-300">
+          
+          {/* Logo */}
+          <div className="text-2xl font-extrabold text-gray-900 flex items-center">
+            <span className="text-orange-500 text-4xl mr-1 leading-none">★</span> 
+            <span className="tracking-tighter">FUTURE</span><span className="text-orange-500">EDGE</span>
+          </div>
+
+          {/* Desktop Menu Items */}
+          <div className="hidden lg:flex space-x-10 text-gray-700 font-medium">
+            {menuItems.map((item) => (
+              <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                className="hover:text-orange-600 transition duration-300 p-2 rounded-lg hover:bg-gray-100"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
